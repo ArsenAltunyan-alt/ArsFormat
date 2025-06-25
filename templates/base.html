@@ -12,12 +12,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .main-section {
-            background-color: #000000;
-            min-height: 100vh;
-            padding-top: 60px;
-        }
-
         header.blur-header {
             position: fixed;
             top: 0;
@@ -77,27 +71,6 @@
             margin-top: 20px;
         }
 
-        .advantages-section {
-            padding: 40px 0 80px 0;
-        }
-
-        .advantage-item {
-            background-color: #111111;
-            border-radius: 10px;
-            padding: 30px 20px;
-            text-align: center;
-            height: 100%;
-            transition: 0.3s;
-        }
-
-        .advantage-item:hover {
-            background-color: #1a1a1a;
-        }
-
-        .advantage-item h5 {
-            font-weight: 600;
-        }
-
         .custom-file-input {
             color: white;
             background-color: transparent;
@@ -127,6 +100,109 @@
         .custom-file-input:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+
+        .advantages-section {
+            padding: 40px 0 80px 0;
+        }
+
+        .advantage-item {
+            background-color: #111111;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            height: 100%;
+            transition: 0.3s;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .advantage-item:hover {
+            background-color: #1a1a1a;
+        }
+
+        .advantage-item h5 {
+            font-weight: 600;
+        }
+
+        .animate-fadeInUp {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* Mega Menu Styles */
+        .nav-item.dropdown .dropdown-menu {
+            background-color:   rgba(0, 0, 0, 0.57);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: none;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            margin-top: 0;
+            z-index: 1029;
+        }
+
+        .nav-item.dropdown .dropdown-menu .list-group-item {
+            background-color: transparent;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+        }
+
+        .nav-item.dropdown .dropdown-menu .list-group-item:hover {
+            background-color: rgba(30, 30, 30, 0.26);
+        }
+
+        .nav-item.dropdown .dropdown-menu .text-uppercase {
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .nav-item.dropdown .dropdown-toggle::after {
+            border-top-color: white;
+            border-bottom-color: white;
+        }
+
+        .navbar-nav .nav-link {
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .nav-item.dropdown .dropdown-menu {
+                min-width: 1200px; /* Увеличим ширину для десктопов */
+                margin-left: -800px; /* Сдвинем влево для центрирования */
+            }
+
+            .nav-item.dropdown .dropdown-menu .row {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+
+            .nav-item.dropdown .dropdown-menu .col-lg-3 {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .nav-item.dropdown .dropdown-menu {
+                width: 100%;
+                position: static;
+                background-color: rgba(0, 0, 0, 0.95);
+            }
+
+            .navbar-collapse {
+                background-color: rgba(0, 0, 0, 0.95);
+                padding: 1rem;
+            }
+
+            .nav-item.dropdown .dropdown-menu .col-lg-3 {
+                padding: 0 10px;
+            }
+        }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100 bg-black text-white">
@@ -135,10 +211,67 @@
 <header class="blur-header py-4">
     <div class="container d-flex justify-content-between align-items-center">
         <h1 class="h5 mb-0 text-white">ArsFormat</h1>
-        <nav>
-            <a href="#" class="me-4">Продукти</a>
-            <a href="#" class="me-4">Про нас</a>
-            <a href="#">Контакти</a>
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle me-4" href="#" id="convertersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Конвертери
+                        </a>
+                        <div class="dropdown-menu w-100 mt-0" aria-labelledby="convertersDropdown">
+                            <div class="container">
+                                <div class="row my-4">
+                                    <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                                        <div class="list-group list-group-flush">
+                                            <p class="mb-0 list-group-item text-uppercase">Формати документів</p>
+                                            <a href="#" class="list-group-item list-group-item-action">PDF у Word</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Word у PDF</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Excel у PDF</a>
+                                            <a href="#" class="list-group-item list-group-item-action">PDF у Excel</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                                        <div class="list-group list-group-flush">
+                                            <p class="mb-0 list-group-item text-uppercase">Формати зображень</p>
+                                            <a href="#" class="list-group-item list-group-item-action">JPG у PNG</a>
+                                            <a href="#" class="list-group-item list-group-item-action">PNG у JPG</a>
+                                            <a href="#" class="list-group-item list-group-item-action">PDF у JPG</a>
+                                            <a href="#" class="list-group-item list-group-item-action">JPG у PDF</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                                        <div class="list-group list-group-flush">
+                                            <p class="mb-0 list-group-item text-uppercase">Аудіо формати</p>
+                                            <a href="#" class="list-group-item list-group-item-action">MP3 у WAV</a>
+                                            <a href="#" class="list-group-item list-group-item-action">WAV у MP3</a>
+                                            <a href="#" class="list-group-item list-group-item-action">AAC у MP3</a>
+                                            <a href="#" class="list-group-item list-group-item-action">MP3 у AAC</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-3">
+                                        <div class="list-group list-group-flush">
+                                            <p class="mb-0 list-group-item text-uppercase">Відео формати</p>
+                                            <a href="#" class="list-group-item list-group-item-action">MP4 у AVI</a>
+                                            <a href="#" class="list-group-item list-group-item-action">AVI у MP4</a>
+                                            <a href="#" class="list-group-item list-group-item-action">MOV у MP4</a>
+                                            <a href="#" class="list-group-item list-group-item-action">MP4 у MOV</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link me-4">Про нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Контакти</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </div>
 </header>
@@ -164,50 +297,6 @@
 <!-- MAIN SECTION -->
 <main class="main-section text-white">
     <div class="container">
-
-        <!-- НАШІ ПЕРЕВАГИ -->
-        <section class="advantages-section">
-            <h2 class="text-center mb-5 fw-semibold">Наші переваги</h2>
-            <div class="row text-center">
-                <div class="col-md-4 mb-4">
-                    <div class="advantage-item">
-                        <h5>1. Підтримка форматів</h5>
-                        <p>Конвертуйте PDF, DOCX, JPG, PNG та інші файли.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="advantage-item">
-                        <h5>2. Висока швидкість</h5>
-                        <p>Файли обробляються за секунди.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="advantage-item">
-                        <h5>3. Простота використання</h5>
-                        <p>Інтерфейс зрозумілий навіть новачкам.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="advantage-item">
-                        <h5>4. Безпека</h5>
-                        <p>Ваші файли не зберігаються на сервері.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="advantage-item">
-                        <h5>5. Безкоштовний доступ</h5>
-                        <p>Усі базові функції — безкоштовно.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="advantage-item">
-                        <h5>6. Техпідтримка</h5>
-                        <p>Швидка допомога через пошту або чат.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         {% block content %}
         {% endblock %}
     </div>
@@ -216,7 +305,7 @@
 <!-- FOOTER -->
 <footer class="text-white text-center py-4 mt-auto" style="background-color: black;">
     <div class="container">
-        <p class="mb-0">&copy; {{ year|default:"2025" }} ArsFormat. Всі права захищені.</p>
+        <p class="mb-0">© {{ year|default:"2025" }} ArsFormat. Всі права захищені.</p>
     </div>
 </footer>
 
@@ -230,7 +319,27 @@
         }
     });
 </script>
+<script>
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+        );
+    }
 
+    function animateOnScroll() {
+        const items = document.querySelectorAll('.advantage-item');
+        items.forEach(item => {
+            if (isElementInViewport(item) && !item.classList.contains('animate-fadeInUp')) {
+                item.classList.add('animate-fadeInUp');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
