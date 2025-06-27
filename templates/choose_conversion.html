@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="text-center mt-5">
+    <h2>Файл завантажено: {{ file_name }}</h2>
+    <p>Оберіть формат, у який потрібно конвертувати</p>
+    <a href="{% url 'convert_to_excel' %}" class="btn btn-success">Конвертувати у Excel</a>
+    <a href="{% url 'convert_to_word' %}" class="btn btn-primary">PDF у Word</a>
+</div>
+{% endblock %}

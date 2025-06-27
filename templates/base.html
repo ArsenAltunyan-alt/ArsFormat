@@ -132,10 +132,7 @@
 
         /* Mega Menu Styles */
         .nav-item.dropdown .dropdown-menu {
-            background-color: rgba(0, 0, 0, 0.6) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.575);
             border: none;
             width: 100%;
             top: 100%;
@@ -294,7 +291,7 @@
         <form method="post" enctype="multipart/form-data" class="upload-btn">
             {% csrf_token %}
             <div class="w-50 mx-auto mb-3 text-center">
-                <input type="file" class="custom-file-input">
+                <input type="file" class="custom-file-input" name="file">
             </div>
             <div class="w-50 mx-auto text-center">
                 <button class="btn btn-outline-light">Конвертувати</button>
